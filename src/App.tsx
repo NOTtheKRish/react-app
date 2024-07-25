@@ -1,9 +1,20 @@
-import Message from "./Message";
+import { useState } from "react";
+import Alert from "./components/Alert";
+import Button from "./components/Button";
 
 function App() {
+  const [showAlert, setShowAlert] = useState(false);
+
   return (
     <div>
-      <Message />
+      {showAlert && (
+        <Alert onCloseBtnClicked={() => setShowAlert(false)}>
+          Button Clicked
+        </Alert>
+      )}
+      <Button color="primary" onClick={() => setShowAlert(true)}>
+        Show Alert
+      </Button>
     </div>
   );
 }
